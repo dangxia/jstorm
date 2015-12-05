@@ -68,7 +68,6 @@ public class TaskTransfer {
     private static Logger LOG = LoggerFactory.getLogger(TaskTransfer.class);
 
     protected Map storm_conf;
-    protected DisruptorQueue transferQueue;
     protected KryoTupleSerializer serializer;
     protected Map<Integer, DisruptorQueue> innerTaskTransfer;
     protected DisruptorQueue serializeQueue;
@@ -92,7 +91,6 @@ public class TaskTransfer {
         this.serializer = serializer;
         this.taskStatus = taskStatus;
         this.storm_conf = workerData.getStormConf();
-        this.transferQueue = workerData.getTransferQueue();
         this.innerTaskTransfer = workerData.getInnerTaskTransfer();
 
         this.nodeportSocket = workerData.getNodeportSocket();
